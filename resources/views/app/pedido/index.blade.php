@@ -27,17 +27,20 @@
                             <th></th>
                             <th></th>
                             <th></th>
-                            <th></th>
                         </tr>
                     </thead>
 
                     <tbody>
                         @foreach ($pedidos as $pedido)
+
+                            @php
+                                $cliente = $clientes->firstWhere('id', $pedido->cliente_id);
+                            @endphp
                             <tr>
                                 <td>{{ $pedido->id }}</td>
-                                <td>{{ $pedido->cliente_id }}</td>
+                                <td>{{ $cliente->nome }}</td>
                                 <td><a href="{{ route('pedido-produto.create', ['pedido' => $pedido->id]) }}">Adicionar Produtos</a></td>
-                                <td><a href="{{ route('pedido.show', ['pedido' => $pedido->id]) }}">Visualizar</a></td>
+                                <td><a href="{{ route('pedido-produto.show', ['pedido' => $pedido->id]) }}">Visualizar</a></td>
                                 <td>
                                     <form id="form_{{ $pedido->id }}" method="post" action="{{ route('pedido.destroy', ['pedido' => $pedido->id]) }}">
                                         @csrf
@@ -45,7 +48,6 @@
                                         <a href="#" onclick="document.getElementById('form_{{ $pedido->id }}').submit()">Excluir</a>
                                     </form>
                                 </td>
-                                <td><a href="{{ route('pedido.edit', ['pedido' => $pedido->id]) }}">Editar</a></td>
                             </tr>
                         @endforeach 
                     </tbody>

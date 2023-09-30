@@ -37,7 +37,7 @@ return new class extends Migration
             $table->dropForeign('site_contactos_motivo_contactos_id_foreign');
         });
 
-        DB::statement('update site_contactos set motivo_contactos = motivo_contacto_id');
+        DB::statement('update site_contactos set motivo_contacto = motivo_contactos_id');
 
         Schema::table('site_contactos', function (Blueprint $table) {
             $table->dropColumn('motivo_contactos_id');

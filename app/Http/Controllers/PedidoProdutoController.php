@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Pedido;
 use App\Models\PedidoProduto;
 use App\Models\Produto;
+use App\Models\Cliente;
 use Illuminate\Http\Request;
 
 class PedidoProdutoController extends Controller
@@ -55,9 +56,11 @@ class PedidoProdutoController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(Pedido $pedido)
     {
-        //
+        $cliente = Cliente::find($pedido->cliente_id);
+        $produtos = Produto::all();
+        return view('app.pedido_produto.show', ['pedido' => $pedido, 'produtos' => $produtos, 'cliente' => $cliente]);
     }
 
     /**

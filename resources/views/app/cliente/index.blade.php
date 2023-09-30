@@ -25,7 +25,6 @@
                             <th>Nome</th>
                             <th></th>
                             <th></th>
-                            <th></th>
                         </tr>
                     </thead>
 
@@ -42,7 +41,6 @@
                                         <a href="#" onclick="document.getElementById('form_{{ $cliente->id }}').submit()">Excluir</a>
                                     </form>
                                 </td>
-                                <td><a href="{{ route('cliente.edit', ['cliente' => $cliente->id]) }}">Editar</a></td>
                             </tr>
                         @endforeach 
                     </tbody>

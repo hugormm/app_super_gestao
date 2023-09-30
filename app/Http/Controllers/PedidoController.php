@@ -14,7 +14,8 @@ class PedidoController extends Controller
     public function index(Request $request)
     {
         $pedidos = Pedido::paginate(10);
-        return view('app.pedido.index', ['pedidos' => $pedidos, 'request' => $request->all()]);
+        $clientes = Cliente::all();
+        return view('app.pedido.index', ['pedidos' => $pedidos, 'request' => $request->all(), 'clientes' => $clientes]);
     }
 
     /**
@@ -52,9 +53,10 @@ class PedidoController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(Pedido $pedido)
     {
-        //
+        $cliente = Cliente::find($pedido->cliente_id);
+        return view('app.pedido.show', ['pedido' => $pedido, 'cliente' => $cliente]);
     }
 
     /**
@@ -76,8 +78,9 @@ class PedidoController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Pedido $pedido)
     {
-        //
+        $pedido->delete();
+        return redirect()->route('pedido.index');
     }
 }

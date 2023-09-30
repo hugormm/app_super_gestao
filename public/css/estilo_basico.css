@@ -194,3 +194,19 @@ button:hover {
 .redes-sociais img {
     margin: 0px 15px 0px 15px;
 }
+
+table {
+    border-radius: 5px;
+}
+
+th {
+    background-color: #2a9ee2;
+}
+
+td {
+    background-color: antiquewhite;
+}
+
+table, th, td {
+    padding: 10px;
+}

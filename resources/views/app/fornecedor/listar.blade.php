@@ -6,13 +6,12 @@
     <div class="conteudo-pagina">
 
         <div class="titulo-pagina-2">
-            <p>Fornecedor - Listar</p>
+            <p>Fornecedores</p>
         </div>
 
         <div class="menu">
             <ul>
                 <li><a href="{{ route('app.fornecedor.adicionar') }}">Novo</a></li>
-                <li><a href="{{ route('app.fornecedor') }}">Consulta</a></li>
             </ul>
         </div>
 
@@ -65,7 +64,11 @@
                     </tbody>
                    
                 </table>
-                {{ $fornecedores->appends($request)->links() }}
+                <br>
+                
+                {{ $fornecedores->appends($request)->links('vendor\pagination\semantic-ui') }}
+
+                Exibindo {{ $fornecedores->count() }} fornecedores de {{ $fornecedores->total() }} (de {{ $fornecedores->firstItem() }} a {{ $fornecedores->lastItem() }} )
             </div>
         </div>
 

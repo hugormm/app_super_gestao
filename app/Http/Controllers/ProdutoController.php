@@ -18,7 +18,7 @@ class ProdutoController extends Controller
     {
         
 
-        $produtos = Item::with(['itemDetalhe', 'fornecedor'])->paginate(10); 
+        $produtos = Item::with(['itemDetalhe', 'fornecedor'])->paginate(5); 
 
         return view('app.produto.index', ['produtos' => $produtos, 'request' => $request->all()]);
     }

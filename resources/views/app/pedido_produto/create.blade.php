@@ -6,13 +6,12 @@
     <div class="conteudo-pagina">
 
         <div class="titulo-pagina-2">
-            <p>Pedidos Produto - Adicionar</p>
+            <p>Pedidos Produto</p>
         </div>
 
         <div class="menu">
             <ul>
                 <li><a href="{{ route('pedido.index') }}">Voltar</a></li>
-                <li><a href="">Consulta</a></li>
             </ul>
         </div>
 

@@ -6,13 +6,12 @@
     <div class="conteudo-pagina">
 
         <div class="titulo-pagina-2">
-            <p>Clientes - Listar</p>
+            <p>Clientes</p>
         </div>
 
         <div class="menu">
             <ul>
                 <li><a href="{{ route('cliente.create') }}">Novo</a></li>
-                <li><a href="">Consulta</a></li>
             </ul>
         </div>
 
@@ -46,7 +45,8 @@
                     </tbody>
                    
                 </table>
-                {{ $clientes->appends($request)->links() }}
+                 <br>
+                {{ $clientes->appends($request)->links('vendor\pagination\semantic-ui') }}
 
                 Exibindo {{ $clientes->count() }} clientes de {{ $clientes->total() }} (de {{ $clientes->firstItem() }} a {{ $clientes->lastItem() }} )
             </div>

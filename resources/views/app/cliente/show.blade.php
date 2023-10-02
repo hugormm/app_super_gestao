@@ -6,13 +6,12 @@
     <div class="conteudo-pagina">
 
         <div class="titulo-pagina-2">
-            <p>Cliente - Visualizar</p>
+            <p>Cliente</p>
         </div>
 
         <div class="menu">
             <ul>
                 <li><a href="{{ route('cliente.index') }}">Voltar</a></li>
-                <li><a href="">Consulta</a></li>
             </ul>
         </div>
 

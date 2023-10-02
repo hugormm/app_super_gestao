@@ -6,13 +6,12 @@
     <div class="conteudo-pagina">
 
         <div class="titulo-pagina-2">
-            <p>Pedidos - Listar</p>
+            <p>Pedidos</p>
         </div>
 
         <div class="menu">
             <ul>
                 <li><a href="{{ route('pedido.create') }}">Novo</a></li>
-                <li><a href="">Consulta</a></li>
             </ul>
         </div>
 
@@ -53,7 +52,8 @@
                     </tbody>
                    
                 </table>
-                {{ $pedidos->appends($request)->links() }}
+                <br>
+                {{ $pedidos->appends($request)->links('vendor\pagination\semantic-ui') }}
 
                 Exibindo {{ $pedidos->count() }} pedidos de {{ $pedidos->total() }} (de {{ $pedidos->firstItem() }} a {{ $pedidos->lastItem() }} )
             </div>

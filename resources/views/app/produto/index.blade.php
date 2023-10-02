@@ -6,13 +6,12 @@
     <div class="conteudo-pagina">
 
         <div class="titulo-pagina-2">
-            <p>Produtos - Listar</p>
+            <p>Produtos</p>
         </div>
 
         <div class="menu">
             <ul>
                 <li><a href="{{ route('produto.create') }}">Novo</a></li>
-                <li><a href="">Consulta</a></li>
             </ul>
         </div>
 
@@ -70,7 +69,11 @@
                     </tbody>
                    
                 </table>
-                {{ $produtos->appends($request)->links() }}
+                <br>
+                {{ $produtos->appends($request)->links('vendor\pagination\semantic-ui') }}
+
+                Exibindo {{ $produtos->count() }} produtos de {{ $produtos->total() }} (de {{ $produtos->firstItem() }} a {{ $produtos->lastItem() }} )
+        
             </div>
         </div>
 

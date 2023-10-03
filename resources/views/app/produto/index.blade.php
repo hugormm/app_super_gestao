@@ -57,11 +57,12 @@
                             </tr>
                             <tr>
                                 <td colspan="12">
-                                    <p>Pedidos</p>
+                                    <span>Pedidos Realizados: </span>
                                     @foreach ($produto->pedidos as $pedido)
                                         <a href="{{ route('pedido-produto.create', ['pedido' => $pedido->id]) }}">
-                                            Pedido : {{ $pedido->id }},
-                                        </a>
+                                            Pedido nº {{ $pedido->id }}
+                                        </a> 
+                                        |
                                     @endforeach
                                 </td>
                             </tr>
